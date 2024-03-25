@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+    <h2>Form Validation</h2>
+    <form id="myForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <span id="nameError" class="error"></span><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <span id="emailError" class="error"></span><br>
+
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city"><br>
+        <span id="cityError" class="error"></span><br>
+
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state"><br>
+        <span id="stateError" class="error"></span><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone"><br>
+        <span id="phoneError" class="error"></span><br>
+
+        <label for="occupation">Occupation:</label><br>
+        <input type="text" id="occupation" name="occupation"><br>
+        <span id="occupationError" class="error"></span><br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const city = document.getElementById("city").value.trim();
+            const state = document.getElementById("state").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const occupation = document.getElementById("occupation").value.trim();
+
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const cityError = document.getElementById("cityError");
+            const stateError = document.getElementById("stateError");
+            const phoneError = document.getElementById("phoneError");
+            const occupationError = document.getElementById("occupationError");
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^[0-9]+$/;
+
+            nameError.textContent = "";
+            emailError.textContent = "";
+            cityError.textContent = "";
+            stateError.textContent = "";
+            phoneError.textContent = "";
+            occupationError.textContent = "";
+
+            if (name === "") {
+                nameError.textContent = "Name is required";
+                nameError.style.color = "red";
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                emailError.textContent = "Invalid email format";
+                emailError.style.color = "red";
+                return;
+            }
+
+            if (city === "") {
+                cityError.textContent = "City is required";
+                cityError.style.color = "red";
+                return;
+            }
+
+            if (state === "") {
+                stateError.textContent = "State is required";
+                stateError.style.color = "red";
+                return;
+            }
+
+            if (phone === "") {
+                phoneError.textContent = "Phone number is required";
+                phoneError.style.color = "red";
+                return;
+            } else if (!phoneRegex.test(phone)) {
+                phoneError.textContent = "Phone number must contain only digits";
+                phoneError.style.color = "red";
+                return;
+            }
+
+            if (occupation === "") {
+                occupationError.textContent = "Occupation is required";
+                occupationError.style.color = "red";
+                return;
+            }
+
+            // If all fields are valid, submit the form
+            alert("Form submitted successfully!");
+            document.getElementById("myForm").reset();
+        }
+    </script>
+</body>
+</html>
