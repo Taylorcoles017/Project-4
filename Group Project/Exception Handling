@@ -1,0 +1,24 @@
+//#c
+try {
+    if (!pageName) {
+        throw new Error("Page name is not provided");
+    }
+    console.log("Page name: " + pageName);
+} catch (error) {
+    console.log("An error occurred:", error.message);
+}
+
+//#d
+function validateNumeric(parameter) {
+    if (isNaN(parameter)) {
+        throw new Error("Parameter is not a numeric value");
+    } else {
+        console.log("Parameter is a numeric value");
+    }
+}
+
+try {
+    validateNumeric(123); 
+} catch (error) {
+    console.log("An error occurred:", error.message);
+}
