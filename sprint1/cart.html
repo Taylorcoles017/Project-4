@@ -56,5 +56,44 @@
 <a href="menu.html">Menu</a>
 <a href="cart.html">Checkout</a>
 <a href="contact.html">Contact</a>
-
 </nav>
+<header>
+    <h1>Checkout</h1> 
+    <p>Appetizers</p> 
+    <p><b><i>Provolone $10.95</i></b> 
+    <button class="cart-btn" onclick="addToCart('Provolone')">Add to Cart</button></p>
+    <p><b><i>Lightly breaded sticks of provolone, deep fried in hot oil, served with tomato sauce.</i></b></p>
+    
+    <p><b><i>Zucchini $10.95</i></b> 
+    <button class="cart-btn" onclick="addToCart('Zucchini')">Add to Cart</button></p>
+    <p><b><i>Strips of zucchini, deep fried, topped with romano cheese and lemon.</i></b></p>
+
+    <p><b><i>Stuffed Bread Sticks $6.95</i></b> 
+    <button class="cart-btn" onclick="addToCart('Stuffed Bread Sticks')">Add to Cart</button></p>
+    <p><b><i>Our Famous breadsticks stuffed with 2 choices: pepperoni and imported cheeses or fresh spinach and cheese.</i></b></p>
+
+    <p><b><i>Bread Sticks $5.95</i></b> 
+    <button class="cart-btn" onclick="addToCart('Bread Sticks')">Add to Cart</button></p>
+    <p><b><i>Fresh dough, deep fried, topped with garlic and romano cheese. </i></b></p>
+
+    <p>Pasta Entrees</p>
+    <p><b><i>Spaghetti or Rigatoni with tomato sauce $12.95</i></b> 
+        <button class="cart-btn" onclick="addToCart('Spaghetti or Rigatoni with tomato sauce')">Add to Cart</button></p>
+        <p><b><i>Chopped garlic and anchovies sautéed in extra virgin olive oil, topped with bread crumbs and Romano cheese.</i></b></p>
+    
+        <p><b><i>Linguine Clam $16.95</i></b> 
+        <button class="cart-btn" onclick="addToCart('Linguine Clam')">Add to Cart</button></p>
+        <p><b><i>Tender clams sautéed in garlic and olive oil, your choice of red or white.</i></b></p>
+    
+
+</header>
+
+<script>
+    function addToCart(item) {
+        try {
+            alert('Item ' + item + ' ready to checkout!');
+        } catch (error) {
+            alert('An error occurred while adding ' + item + ' to the cart: ' + error.message);
+        }
+    }
+</script>

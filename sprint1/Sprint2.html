@@ -58,6 +58,15 @@
             background-color: #45a049;
         }
     </style>
+    <script>
+        function greet() {
+            var userGreeting = "Hi Customer!";
+            alert(userGreeting);
+            alert("Welcome!");
+        }
+
+        greet(); 
+    </script>
 </head>
 
 <body>
@@ -70,6 +79,8 @@
     </nav>
 
 <header>
+    <button onclick="showCoordinates()">GPS Coordinates</button>
+    <div id="gpsCoordinates"></div>
     <h1>Welcome to Pasta Penguins!</h1> 
     <p>Where each pasta dish combines dedication and excellence!</p>
     <p>Take a trip through your taste buds with a variety of pasta dishes, delicious sauces, and mouthwatering toppings.</p>
@@ -79,16 +90,32 @@
     <p><b><i>Special Items:</i></b></p>
 
     <p><b><i>Spicy Arrabbiata Penne:</i></b> Our fiery Arrabbiata sauce covering al dente penne will entice your palate. Add some red pepper flakes, and it becomes a fiery symphony.
-    <button class="buy-now-btn">Buy Now</button></p>
+        <button class="buy-now-btn" onclick="buyNow('Spicy Arrabbiata Penne')">Buy Now</button></p>
 
     <p><b><i>Seafood Medley Pasta:</i></b> Try our seafood medley pasta to immerse yourself in the tastes of the sea. A mixture of tasty mussels, soft calamari, and juicy shrimp are encased in a creamy sauce made from tomatoes.
-    <button class="buy-now-btn">Buy Now</button></p>
+    <button class="buy-now-btn" onclick="buyNow('Seafood Medley Pasta')">Buy Now</button></p>
+
 
     <p><b><i>Truffle Alfredo Linguine:</i></b> Serve properly cooked linguine with our truffle-infused Alfredo sauce to savor the ultimate in luxury. It's a real treat when topped with fresh chives and Parmesan shavings.
-    <button class="buy-now-btn">Buy Now</button></p>
+        <button class="buy-now-btn" onclick="buyNow('Truffle Alfredo Linguine')">Buy Now</button></p>
+
     <img src="Penne-Arrabbiata-4.webp" height="225" width="190"> <img src="Truffle-Alfredo.jpg" height="225" width="190"> <img src="Spicy-Seafood-Fettuccine-fork-twirl-1.jpg" height="225" width="220">
     <p><b><i>Spicy Penne-Arrabbiata</i></b>  Truffle Alfredo Linguine</i></b>   Seafood Medley Pasta
 </main>
+
+<script>
+    function buyNow(itemName) {
+        alert(itemName + " ready to checkout!");
+    }
+
+    function showCoordinates() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        document.getElementById("gpsCoordinates").innerText = "Latitude: " + latitude + ", Longitude: " + longitude;
+});
+    }
+</script>
 
 </body>
 
